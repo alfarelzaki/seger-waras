@@ -1,0 +1,141 @@
+@import '~antd/dist/antd.css';
+
+
+.App {
+    background-color: #dee3e2;
+    height: 350px;
+    background-image: url('https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/Mengatasi-Ngerinya-Puasa-Sepak-Bola-bagi-Warga-Reading-Inggris-kayak-Saya-2.jpg');
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-size: cover;
+      background-position: center;
+  }
+
+.text-highlight{
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid black;
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 20px;
+  text-align: center;
+  }
+  
+  .content-text{
+    text-align: center;
+    background-color: #ffffff;
+    height: 200px;
+    margin-top: 30px;
+  }
+  
+  .content-discount{
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 40px;
+    background-color: #ffffff;
+    height: 150px;
+  }
+  
+  .content-footer{
+    text-align: center;
+    padding-top: 20px;
+    background-color: white;
+    height: 250px;
+  }
+  
+  .discount-text{
+    text-align: left;
+    padding-left: 200px;
+  }
+  
+  .app-text{
+    text-align: left;
+    padding-top: 70px;
+    padding-left: 170px;
+    padding-right: 30px;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card{
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100px;
+    box-shadow:0px 2px 2px #000;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .ant-layout-header{
+    text-align: center;
+    background-color: dark;
+    height: 100px;
+  }
+  
+  .site-card-wrapper{
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .ant-layout-content{
+    background-color: white;
+  }
+  
+  .ant-row row-list{
+    margin-left: 10px;
+  }
+  
+  .content{
+    padding: 10px 280px;
+  }
+  
+  
+  .img-sepatu {
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .side-news{
+      background-color: silver;
+  }
