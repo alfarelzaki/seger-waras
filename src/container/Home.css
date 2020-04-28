@@ -1,10 +1,16 @@
 @import '~antd/dist/antd.css';
 
+.logo{
+  height: 30px;
+  text-align: right;
+  margin-top: 0px;
+  color: white;
+}
 
 .App {
     background-color: #dee3e2;
     height: 350px;
-    background-image: url('https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/Mengatasi-Ngerinya-Puasa-Sepak-Bola-bagi-Warga-Reading-Inggris-kayak-Saya-2.jpg');
+    background-image: url('https://news.okstate.edu/articles/agricultural-sciences-natural-resources/images/2019-food-trends.jpg');
     filter: blur(3px);
     -webkit-filter: blur(3px);
     background-size: cover;
@@ -12,13 +18,13 @@
   }
 
 .text-highlight{
-    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: black;   /* Fallback color */
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   position: absolute;
-  top: 38%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -27,10 +33,9 @@
   text-align: center;
   }
   
-  .content-text{
+  .content-terbaru{
     text-align: center;
     background-color: #ffffff;
-    height: 200px;
     margin-top: 30px;
   }
   
@@ -45,8 +50,8 @@
   .content-footer{
     text-align: center;
     padding-top: 20px;
-    background-color: white;
-    height: 250px;
+    background-color: #77d8d8;
+    height: 350px;
   }
   
   .discount-text{
@@ -64,6 +69,21 @@
   .App-logo {
     height: 40vmin;
     pointer-events: none;
+  }
+
+  .judul{
+    margin-top: 10px;
+    /* color: rgb(188, 214, 71); */
+    color: #227575;
+    font-size: 60px;
+    font-family: 'Monoton', cursive;
+  }
+
+  .judul-footer{
+    /* color: rgb(188, 214, 71); */
+    color: #227575;
+    font-size: 50px;
+    font-family: 'Monoton', cursive;
   }
   
   @media (prefers-reduced-motion: no-preference) {
@@ -108,8 +128,8 @@
   
   .ant-layout-header{
     text-align: center;
-    background-color: dark;
-    height: 100px;
+    background-color: #77d8d8;
+    height: 130px;
   }
   
   .site-card-wrapper{
@@ -137,5 +157,24 @@
   }
 
   .side-news{
-      background-color: silver;
+      background-color: rgb(235, 235, 235);
   }
+
+  .footer{
+    text-align: center;
+    height: 550px;
+    background: #77d8d8;
+  }
+
+  hr {
+    border: none;
+    height: 5px;
+    /* Set the hr color */
+    color: black; /* old IE */
+    background-color: black; /* Modern Browsers */
+}
+
+.font-cabin{
+  font-family: 'Cabin Sketch', cursive;
+  color: #227575;
+}

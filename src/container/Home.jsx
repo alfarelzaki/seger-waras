@@ -6,11 +6,13 @@ import { Col, Row } from 'antd';
 import { Card } from 'antd';
 import { Button, Tooltip } from 'antd';
 import { Layout, Menu, Breadcrumb } from 'antd';
+import { BookOutlined } from '@ant-design/icons';
+
 
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;
 
-const cardData = [
+const cardTrending = [
   {
     image : "https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/mom-woman-kid-face-mask-hospital-732x549-thumbnail-732x549.jpg?w=514",
     title : "How to Use a Face Mask Correctly",
@@ -28,40 +30,71 @@ const cardData = [
   }
 ]
 
+const cardTerbaru=[
+  {
+    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
+    describe:"Semoga cepat berakhir."
+  },
+  {
+    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
+    describe:"Semoga cepat berakhir."
+  },
+  {
+    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
+    describe:"Semoga cepat berakhir."
+  },
+  {
+    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
+    describe:"Semoga cepat berakhir."
+  },
+  {
+    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
+    describe:"Semoga cepat berakhir."
+  },
+]
+
 class Home extends React.Component{
   render(){
     return (
       <Layout className="layout">
       <Header>
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['1']}
-          style={{ lineHeight: '100px', fontWeight:'bold'}}
-        >
-          <Menu.Item key="1">MEN</Menu.Item>
-          <Menu.Item key="2"><Link to='/'>WOMEN</Link></Menu.Item>
-          <Menu.Item key="3"><Link to='/'>KIDS</Link></Menu.Item>
-          <button onClick={() => app.auth().signOut()}>Sign out</button>
-        </Menu>
+        <div className="logo">
+          <Row>
+            <Col span={23}>
+              <BookOutlined style={{fontSize:'40px', paddingRight:'10px', paddingTop:'12px'}} />
+            </Col>
+            <Col span={1}>
+              <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold'}} onClick={() => app.auth().signOut()}>Sign out</Button>
+            </Col>
+          </Row>
+        </div>
+          <h1 className="judul">Seger Waras</h1>
       </Header>
       <Content className="content">
-      <div className="App">
-                    
-      </div>
+      <div className="App"></div>
       <div className="text-highlight">
           <h1 style={{fontSize:'30pt', marginTop:'0', color:'white'}}>Healthy Living</h1>
           <h3 style={{color:'white', fontSize:'20pt'}}>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear.</h3>
-         </div>
-
+      </div> 
+      
       <div className="site-card-wrapper">
-        <hr/>
-        <h1 style={{textAlign:'left',color:'black'}}>Ini Lagi Trending Loh</h1>
+          <Row>
+              <Col span={5}>
+              <h1 style={{textAlign:'left',color:'black', fontWeight:'bold'}}>Ini Lagi Trending</h1>
+              </Col>
+              <Col span={19} style={{marginTop:'10px'}}>
+                  <hr/>
+              </Col>
+            </Row>
             <Row justify="center">
-              {cardData.map(data=> 
+              {cardTrending.map(data=> 
               <Card
-                style={{ width: 300, margin: 8, textAlign:'left'}}
+                style={{ width: 301, margin: 9, textAlign:'center'}}
                 cover={<img alt="example" src={data.image} />}>
                 <Meta title={data.title} description={data.describe} />
               </Card>
@@ -69,66 +102,66 @@ class Home extends React.Component{
             </Row>
       </div>
 
-      <div className="content-text">
-      <hr/>
-      <h1 style={{textAlign:'left',color:'black'}}>Ini Penting Banget</h1>
+      <div className="content-terbaru">
+        <Row>
+          <Col span={3}>
+              <h1 style={{textAlign:'left',color:'black', fontWeight:'bold'}}>Ini Terbaru</h1>
+          </Col>
+          <Col span={21} style={{marginTop:'10px'}}>
+              <hr/>
+          </Col>
+        </Row>
+      
         <Row>
           <Col span={16}>
                 <Row>
-                  <Col span={8}>
-                    {cardData.map(data=> 
+                  <Col span={9}>
+                    {cardTerbaru.map(data=> 
                     <div>
-                      <img style={{width:200, margin: 10}} src={data.image} />
+                      <img style={{width:220, margin: 10}} src={data.image} />
                     </div>
                     )}
                   </Col>
-                  <Col span={16}>
-                    {cardData.map(data=>
+                  <Col span={15} style={{}}>
+                    {cardTerbaru.map(data=>
+                    <div style={{textAlign:'left'}}>
                       <Meta title={data.title} description={data.describe} />
+                    </div>
                       )}
                   </Col>
                 </Row>
           </Col>
           <Col span={8} className="side-news">
-            
+            <h1 style={{textAlign:'center', textDecoration:'underline', fontWeight:'bold'}}>Ini Populer</h1>
           </Col>
         </Row>
       </div>
-
-      {/* <div className="content-discount">
-        <Row>
-          <Col span={12} className="discount-text" style={{textAlign:'left', paddingLeft:'330px'}}>
-            <h2 style={{fontSize:'23pt', margin:'0', color:'white', fontWeight:'bold'}}>JOIN CREATOR & GET <br/>15% DISCOUNT</h2>
-          </Col>
-          <Col span={12} style={{paddingTop:'30px', textAlign:'left'}}>
-          <Button type="dark" style={{width:'125px', height:'50px',  color:'white', backgroundColor:'black'}}>
-              SIGN UP
-              
-            </Button>
-          </Col> 
-        </Row>
-      </div> */}
-
-      {/* <div className="content-footer">
+        
+    </Content>
+    <Footer className="footer">
+      <div className="content-footer">
         <Row>
           <Col span={10} style={{textAlign:'right'}}>
-            <h3>TRENDING</h3>
+            <h3>INI TRENDING</h3>
             <p>Black Friday<br/>Cyber Monday<br/>Casual Shoes<br/>Slip On Shoes<br/>Camo Clothing<br/>Burgundy Shoes<br/>Leather Sneakers</p>
           </Col>
           <Col span={4}>
-          <h3>CUSTOMER SUPPORT</h3>
+          <h3>INI TERBARU</h3>
           <p>Get Help<br/>Track Order<br/>Return and Refunds<br/>Promotions<br/>How to Clean<br/>Store Locator<br/>Site Map</p>
           </Col>
           <Col span={10}style={{textAlign:'left'}}>
-          <h3>COMPANY INFO</h3>
+          <h3>INI POPULER</h3>
           <p>About Us<br/>Careers<br/>Press<br/>Military Discount<br/>Student Discount<br/>Mobile Apps<br/>Creator Clubs Adadas Stories</p>
-            
           </Col>
         </Row>
+      </div>
+      <div>
+        <h1 className="judul-footer">Seger Waras</h1>
+        <h1 className="font-cabin">Alfarelzaki / farizalbab / MRizal</h1>
+        <h3 className="font-cabin">© 2020 SEGER WARAS - ALL RIGHTS RESERVED.</h3>
+      </div>
 
-      </div> */}
-        
-    </Content>
+    </Footer>
     </Layout>
       );
   }
