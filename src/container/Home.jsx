@@ -1,5 +1,5 @@
 import React from "react";
-import { app } from "../firebase";
+import { app, db } from "../firebase";
 import './Home.css';
 import { Link } from 'react-router-dom'
 import { Col, Row } from 'antd';
@@ -7,6 +7,7 @@ import { Card } from 'antd';
 import { Button, Tooltip } from 'antd';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { BookOutlined } from '@ant-design/icons';
+import { Carousel } from 'antd';
 
 
 const { Header, Content, Footer } = Layout;
@@ -32,33 +33,57 @@ const cardTrending = [
 
 const cardTerbaru=[
   {
-    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
     title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    describe:"Semoga cepat berakhir."
+    content:"Semoga cepat berakhir."
   },
   {
-    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
     title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    describe:"Semoga cepat berakhir."
+    content:"Semoga cepat berakhir."
   },
   {
-    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
     title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    describe:"Semoga cepat berakhir."
+    content:"Semoga cepat berakhir."
   },
   {
-    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
     title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    describe:"Semoga cepat berakhir."
+    content:"Semoga cepat berakhir."
   },
   {
-    image:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
+    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
     title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    describe:"Semoga cepat berakhir."
+    content:"Semoga cepat berakhir."
   },
 ]
 
+const cardPopuler=[
+  {
+    image:"https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/Female_Grocery_Store_Coronavirus_732x549-thumbnail-732x549.jpg?w=514",
+    title:"Here’s How to Clean Your Groceries During the COVID-19 Outbreak",
+    describe:"Shopping for groceries carries extra risk during the COVID-19 outbreak. Not only are you near other people, but many of the…"
+  }
+]
+
 class Home extends React.Component{
+  constructor (props) {
+    super(props)
+    this.state = {
+      articleData: cardTerbaru
+    }
+  }
+
+  componentDidMount() {
+    db.collection('articles')
+    .get()
+    .then(collection => {
+       const articles = collection.docs.map(doc => doc.data())
+       this.setState({ articleData: articles })
+   })
+  }
+
   render(){
     return (
       <Layout className="layout">
@@ -78,10 +103,9 @@ class Home extends React.Component{
       <Content className="content">
       <div className="App"></div>
       <div className="text-highlight">
-          <h1 style={{fontSize:'30pt', marginTop:'0', color:'white'}}>Healthy Living</h1>
-          <h3 style={{color:'white', fontSize:'20pt'}}>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear.</h3>
-      </div> 
-      
+        <h1 style={{fontSize:'30pt', marginTop:'0', color:'white'}}>Healthy Living</h1>
+        <h3 style={{color:'white', fontSize:'20pt'}}>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear.</h3>
+      </div>
       <div className="site-card-wrapper">
           <Row>
               <Col span={5}>
@@ -113,35 +137,43 @@ class Home extends React.Component{
         </Row>
       
         <Row>
-          <Col span={16}>
+          <Col span={17}>
                 <Row>
-                  <Col span={9}>
-                    {cardTerbaru.map(data=> 
+                  {this.state.articleData.map(data=> 
                     <div>
-                      <img style={{width:220, margin: 10}} src={data.image} />
+                      <Row style={{marginTop: 20, paddingRight:20}}>
+                        <Col span={9}>
+                          <div>
+                            <img style={{width:220}} src={data.imageUrl} />
+                          </div>
+                        </Col>
+                        <Col span={15}>
+                          <div style={{textAlign:'left'}}>
+                            <Meta title={data.title} description={data.content} />
+                          </div>
+                        </Col>
+                      </Row>
                     </div>
-                    )}
-                  </Col>
-                  <Col span={15} style={{}}>
-                    {cardTerbaru.map(data=>
-                    <div style={{textAlign:'left'}}>
-                      <Meta title={data.title} description={data.describe} />
-                    </div>
-                      )}
-                  </Col>
+                  )}         
                 </Row>
           </Col>
-          <Col span={8} className="side-news">
+          <Col span={7} className="side-news">
             <h1 style={{textAlign:'center', textDecoration:'underline', fontWeight:'bold'}}>Ini Populer</h1>
+            {cardPopuler.map(data=>
+            <div>
+              <img style={{width:220, textAlign:'center'}} src={data.image} />
+              <Meta title={data.title}/>
+            </div>
+              )}
           </Col>
         </Row>
       </div>
-        
+              
     </Content>
     <Footer className="footer">
       <div className="content-footer">
         <Row>
-          <Col span={10} style={{textAlign:'right'}}>
+          <Col span={10} style={{textAlign:'center'}}>
             <h3>INI TRENDING</h3>
             <p>Black Friday<br/>Cyber Monday<br/>Casual Shoes<br/>Slip On Shoes<br/>Camo Clothing<br/>Burgundy Shoes<br/>Leather Sneakers</p>
           </Col>
@@ -149,7 +181,7 @@ class Home extends React.Component{
           <h3>INI TERBARU</h3>
           <p>Get Help<br/>Track Order<br/>Return and Refunds<br/>Promotions<br/>How to Clean<br/>Store Locator<br/>Site Map</p>
           </Col>
-          <Col span={10}style={{textAlign:'left'}}>
+          <Col span={10}style={{textAlign:'center'}}>
           <h3>INI POPULER</h3>
           <p>About Us<br/>Careers<br/>Press<br/>Military Discount<br/>Student Discount<br/>Mobile Apps<br/>Creator Clubs Adadas Stories</p>
           </Col>
