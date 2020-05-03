@@ -1,6 +1,10 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import { app } from "../firebase";
+import 'antd/dist/antd.css';
+import './Login.css';
+import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,19 +21,67 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+  
+
+    <div className="background">
+    <div
+    name="normal_login"
+    className="login-form"> 
+    <img 
+    src="./images/user-icon.png"
+    className="user-icon"
+    alt="usericon"
+    >
+
+    </img>
+    <h1 className="text-signup">Sign Up </h1>
+    <form onSubmit={handleSignUp}
+  
+     
+     
+    >
+      <Form.Item
+        name="email"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input name="email" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="email" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input name="password"
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+       
+        </Form.Item>
+
+       
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Sign Up
+        </Button>
+        Or <a href="/login">Login</a>
+      </Form.Item>
+    </form>
+    </div>
     </div>
   );
 };

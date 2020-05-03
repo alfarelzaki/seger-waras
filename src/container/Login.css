@@ -1,0 +1,41 @@
+.login-form {
+    max-width: 300px;
+    margin: 50px auto;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow:10px 10px 5px 0px rgba(0,0,0,0.75); 
+    background: #77d8d8;
+  }
+  .login-form-forgot {
+    float: right;
+  }
+  .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  .login-form-button {
+    width: 100%;
+    
+  }
+
+  .user-icon{
+    width: 70px;
+    margin-top: -50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-login{
+    display: block;
+    margin-left: 100px;
+    margin-top: 10px;
+    color: #227575 ;
+    
+  }
+  .text-signup{
+    display: block;
+    margin-left: 80px;
+    margin-top: 10px;
+   
+  }
+  
