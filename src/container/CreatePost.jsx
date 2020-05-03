@@ -3,6 +3,7 @@ import "../App.css";
 import { db, app } from "../firebase";
 import { Form, Input, InputNumber, Button, Layout} from 'antd';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'antd';
 const { Header, Content, Footer } = Layout;
 
 const layout = {
@@ -79,16 +80,26 @@ class CreatePost extends React.Component {
     render () {
         return (
             <div>
+                <Header>
+                 <div className="logo">
+                    <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
+                </div>
+                    <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
+                </Header>
                 <Content className="content">
-                    <h1>Create Article</h1>
+                <Row>
+                    <Col span={5}>
+                        <h1 style={{textAlign:'left',color:'black', fontWeight:'bold'}}>Create Article</h1>
+                    </Col>
+                    <Col span={19} style={{marginTop:'15px'}}>
+                        <hr/>
+                    </Col>
+                </Row>
                     <Form {...layout} name="nest-messages" onFinish={this.addArticle} validateMessages={validateMessages}>
                         <Form.Item name="title" label="Title" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
                         <Form.Item name="imageUrl" label="Image URL" rules={[{ required: true }]}>
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="author" label="Author" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
                         <Form.Item name="content" label="Content">
@@ -101,7 +112,6 @@ class CreatePost extends React.Component {
                         </Form.Item>
                     </Form>
                 </Content>
-                
             </div>
             
         );

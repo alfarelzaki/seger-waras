@@ -3,6 +3,7 @@ import '../App.css'
 import { app, db } from "../firebase";
 import { Button, Layout, Card, Col, Row } from 'antd';
 import { List, Avatar, Space } from 'antd';
+import { Link } from 'react-router-dom'
 import { EditOutlined, DeleteOutlined, BookOutlined, FileAddOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
@@ -47,17 +48,23 @@ class ReadPost extends React.Component {
 
         return (
             <Layout className="layout">
+                <Header>
+                 <div className="logo">
+                    <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
+                </div>
+                    <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
+                </Header>
                 <Content className="content">
                 
                 <Row>
-
-                    <h1 style={{ textAlign: 'left', color: 'black', fontWeight:'bold' }}>Your articles</h1>
-                    <div>
-                        <Button className="float-right" type="primary" icon={<FileAddOutlined />}>
+                    <Col span={21}>
+                        <h1 style={{ textAlign: 'left', color: 'black', fontWeight:'bold' }}>Your articles</h1>
+                    </Col>
+                    <Col span={3}>
+                    <Button className="float-left" type="primary" icon={<FileAddOutlined />}>
                             Add article
                         </Button>
-                    </div>
-                    
+                    </Col>
                 </Row>
                 <hr/>
 
@@ -90,13 +97,15 @@ class ReadPost extends React.Component {
                         )}
                     />
                 </section>
-
-                
                 </Content>
-
                 <Footer className="footer">
+                <div className="footer-about">
+                    <h1 className="judul-footer">Seger Waras</h1>
+                    <h1 className="font-cabin">Created by</h1>
+                    <h1 className="font-cabin">Alfarelzaki ~ farizalbab ~ Rizal Miftah</h1>
+                    <h3 className="font-cabin">© 2020 SEGER WARAS - ALL RIGHTS RESERVED.</h3>
+                </div>
                 </Footer>
-
             </Layout>
 
         )
