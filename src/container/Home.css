@@ -1,0 +1,191 @@
+@import '~antd/dist/antd.css';
+
+.logo{
+  height: 30px;
+  text-align: right;
+  margin-top: 0px;
+  color: white;
+}
+
+.App {
+    background-color: #dee3e2;
+    height: 400px;
+    background-image: url('https://news.okstate.edu/articles/agricultural-sciences-natural-resources/images/2019-food-trends.jpg');
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-size: cover;
+      background-position: center;
+  }
+
+.text-highlight{
+  background-color: black;   /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  /* border: 3px solid black; */
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40%;
+  padding: 20px;
+  text-align: center;
+  }
+  
+  .content-terbaru{
+    text-align: left;
+    background-color: #ffffff;
+    margin-top: 30px;
+  }
+  
+  .content-discount{
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 40px;
+    background-color: #ffffff;
+    height: 150px;
+  }
+  
+  .content-footer{
+    text-align: center;
+    background-color: #F7EFEC;
+    height: 350px;
+    width:900px;
+  }
+  
+  .discount-text{
+    text-align: left;
+    padding-left: 200px;
+  }
+  
+  .app-text{
+    text-align: left;
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  .judul{
+    margin-top: 10px;
+    /* color: rgb(188, 214, 71); */
+    color: #227575;
+    font-size: 60px;
+    font-family: 'Monoton', cursive;
+  }
+
+  .judul-footer{
+    /* color: rgb(188, 214, 71); */
+    color: #227575;
+    font-size: 50px;
+    font-family: 'Monoton', cursive;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card{
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100px;
+    box-shadow:0px 2px 2px #000;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .ant-layout-header{
+    text-align: center;
+    background-color: #77d8d8;
+    height: 130px;
+  }
+  
+  .site-card-wrapper{
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .ant-layout-content{
+    background-color: white;
+  }
+  
+  .ant-row row-list{
+    margin-left: 10px;
+  }
+  
+  .content{
+    padding: 10px 280px;
+  }
+  
+  
+  .img-sepatu {
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .side-news{
+      background-color: rgb(235, 235, 235);
+      text-align: center;
+  }
+
+  .footer{
+    text-align: center;
+    height: 250px;
+    background: #77d8d8;
+  }
+
+  hr {
+    border: none;
+    height: 5px;
+    /* Set the hr color */
+    color: black; /* old IE */
+    background-color: black; /* Modern Browsers */
+}
+
+.font-cabin{
+  font-family: 'Cabin Sketch', cursive;
+  color: #227575;
+}
+
+.footer-about{
+  padding-top: 0px;
+}
+
+.img-footer {
+  width: 550px;
+  height: 350px;
+  object-fit: cover;
+}
