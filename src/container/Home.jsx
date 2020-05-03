@@ -7,11 +7,31 @@ import { Card } from 'antd';
 import { Button, Tooltip } from 'antd';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { BookOutlined } from '@ant-design/icons';
-import { Carousel } from 'antd';
+import { List, Avatar, Space } from 'antd';
+import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;
+const listData = [];
+for (let i = 0; i < 23; i++) {
+  listData.push({
+    href: 'http://ant.design',
+    title: `ant design part ${i}`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    description:
+      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    content:
+      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+  });
+}
+
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
 const cardTrending = [
   {
@@ -28,42 +48,6 @@ const cardTrending = [
     image : "https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/Male_Laptop_732x549-thumbnail-1-732x549.jpg?w=514",
     title : "7 Tips for Making the Most of Online Therapy During the COVID-19 Outbreak",
     describe : "Online therapy can feel awkward. But it doesn't have to."
-  }
-]
-
-const cardTerbaru=[
-  {
-    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
-    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    content:"Semoga cepat berakhir."
-  },
-  {
-    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
-    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    content:"Semoga cepat berakhir."
-  },
-  {
-    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
-    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    content:"Semoga cepat berakhir."
-  },
-  {
-    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
-    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    content:"Semoga cepat berakhir."
-  },
-  {
-    imageUrl:"https://i0.wp.com/mojok.co/wp-content/uploads/2020/04/prediksi-covid-19-di-indonesia-260x170.jpg",
-    title:"Beberapa Prediksi tentang Kapan Wabah Corona di Indonesia Akan Berakhir",
-    content:"Semoga cepat berakhir."
-  },
-]
-
-const cardPopuler=[
-  {
-    image:"https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/Female_Grocery_Store_Coronavirus_732x549-thumbnail-732x549.jpg?w=514",
-    title:"Here’s How to Clean Your Groceries During the COVID-19 Outbreak",
-    describe:"Shopping for groceries carries extra risk during the COVID-19 outbreak. Not only are you near other people, but many of the…"
   }
 ]
 
@@ -135,61 +119,54 @@ class Home extends React.Component{
               <hr/>
           </Col>
         </Row>
-      
-        <Row>
-          <Col span={17}>
-                <Row>
-                  {this.state.articleData.map(data=> 
-                    <div>
-                      <Row style={{marginTop: 20, paddingRight:20}}>
-                        <Col span={9}>
-                          <div>
-                            <img style={{width:220}} src={data.imageUrl} />
-                          </div>
-                        </Col>
-                        <Col span={15}>
-                          <div style={{textAlign:'left'}}>
-                            <Meta title={data.title} description={data.content} />
-                          </div>
-                        </Col>
-                      </Row>
-                    </div>
-                  )}         
-                </Row>
-          </Col>
-          <Col span={7} className="side-news">
-            <h1 style={{textAlign:'center', textDecoration:'underline', fontWeight:'bold'}}>Ini Populer</h1>
-            {cardPopuler.map(data=>
-            <div>
-              <img style={{width:220, textAlign:'center'}} src={data.image} />
-              <Meta title={data.title}/>
-            </div>
-              )}
-          </Col>
-        </Row>
+        <List
+    itemLayout="vertical"
+    size="large"
+    dataSource={this.state.articleData}
+    footer={
+      <div>
+        <b>ant design</b> footer part
       </div>
-              
+    }
+    renderItem={item => (
+      <List.Item
+        key={item.title}
+        extra={
+          <img
+            width={272}
+            alt="logo"
+            src={item.imageUrl}
+          />
+        }
+      >
+        <List.Item.Meta
+          title={<a href={item.href}>{item.title}</a>}
+          description={item.description}
+        />
+        {item.content}
+      </List.Item>
+    )}
+  />
+      </div>      
     </Content>
     <Footer className="footer">
-      <div className="content-footer">
+      <div className="content-footer">   
         <Row>
-          <Col span={10} style={{textAlign:'center'}}>
-            <h3>INI TRENDING</h3>
-            <p>Black Friday<br/>Cyber Monday<br/>Casual Shoes<br/>Slip On Shoes<br/>Camo Clothing<br/>Burgundy Shoes<br/>Leather Sneakers</p>
-          </Col>
-          <Col span={4}>
-          <h3>INI TERBARU</h3>
-          <p>Get Help<br/>Track Order<br/>Return and Refunds<br/>Promotions<br/>How to Clean<br/>Store Locator<br/>Site Map</p>
-          </Col>
-          <Col span={10}style={{textAlign:'center'}}>
-          <h3>INI POPULER</h3>
-          <p>About Us<br/>Careers<br/>Press<br/>Military Discount<br/>Student Discount<br/>Mobile Apps<br/>Creator Clubs Adadas Stories</p>
-          </Col>
+              <Col span={12} className="app-text">
+                <h1 style={{fontSize:'30pt', margin:'0'}}>CREATE YOUR OWN ARTICLE NOW!</h1>
+                <p>Get 30% off full price and sale with promo code MARCH30 at checkout. Excludes Yeezy, Pharrell Williams, and Gift Cards</p>
+                <Button type="dark" style={{width:'100px', height:'50px',  color:'white', backgroundColor:'black', fontWeight:'bold'}}>
+                   CREATE
+                </Button>
+              </Col>
+              <Col span={12}>
+                <img className="img-footer" src="https://houseofheat.co/app/uploads/2019/09/Air-Jordan-34-22Blue-Void22-AR3240-400-1.jpg"></img>
+              </Col> 
         </Row>
       </div>
-      <div>
-        <h1 className="judul-footer">Seger Waras</h1>
-        <h1 className="font-cabin">Alfarelzaki / farizalbab / MRizal</h1>
+      <div className="footer-about">
+        <h1 className="font-cabin">Created by</h1>
+        <h1 className="font-cabin">Alfarelzaki / farizalbab / Rizal Miftah</h1>
         <h3 className="font-cabin">© 2020 SEGER WARAS - ALL RIGHTS RESERVED.</h3>
       </div>
 
