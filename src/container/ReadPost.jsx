@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import '../App.css'
 import { app, db } from "../firebase";
 import { Button, Layout, Card, Col, Row } from 'antd';
@@ -16,16 +16,35 @@ class ReadPost extends React.Component {
         }
     }
     
-    componentDidMount() {
-        db.collection('articles')
-        .get()
-        .then(collection => {
-        const articles = collection.docs.map(doc => doc.data())
-        this.setState({ articleData: articles })
-        })
+    async componentDidMount() {
+        try {
+            await db
+            .collection('articles')
+            .get()
+            .then(collection => {
+                const articles = collection.docs.map(doc => doc.data())
+                const ids = collection.docs.map(doc => doc.id)
+
+                articles.map((article, index) => {
+                    article.id = ids[index] 
+                })
+
+                this.setState({ articleData: articles })
+            })
+        } catch (error) {
+            alert(error);
+        }
     }
 
     render() {
+        const deleteArticle = e => {
+            const id = e.target.parentElement.parentElement.dataset.id;
+            db.collection('articles').doc(id).delete();
+            console.log(e.target.parentElement.parentElement.dataset.id);
+
+            if (id != null) this.componentDidMount()
+        }
+
         return (
             <Layout className="layout">
                 <Content className="content">
@@ -51,11 +70,11 @@ class ReadPost extends React.Component {
                         <List.Item
                             key={item.title}
                             actions={[
-                                <EditOutlined/>,
-                                <DeleteOutlined />
+                                <EditOutlined />,
+                                <div data-id={item.id} onClick={deleteArticle}><DeleteOutlined/></div>                                
                             ]}
                             extra={
-                            <img
+                            <img 
                                 width={272}
                                 alt="logo"
                                 src={item.imageUrl}

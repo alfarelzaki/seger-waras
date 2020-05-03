@@ -2,7 +2,22 @@ import React from "react";
 import "../App.css";
 import { db, app } from "../firebase";
 import { Form, Input, InputNumber, Button, Layout} from 'antd';
+import { Link } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
+
+const layout = {
+    labelCol: {
+        span: 4,
+    },
+    wrapperCol: {
+        span: 16,
+    },
+};
+    
+const validateMessages = {
+    required: '${label} is required!',
+};
+      
 
 class CreatePost extends React.Component {
 
@@ -16,14 +31,16 @@ class CreatePost extends React.Component {
         };
     }
 
-    updateInput = e => {
+    addArticle = values => {
         this.setState({
-          [e.target.name]: e.target.value
+            title: values.title,
+            author: values.author,
+            imageUrl: values.imageUrl,
+            content: values.content,
         });
-    }
+        console.log(this.state.title);
+        console.log("check");
 
-    addArticle = e => {
-        e.preventDefault();
         const user = app.auth().currentUser; 
 
         db.settings({
@@ -38,7 +55,7 @@ class CreatePost extends React.Component {
             uid: user.uid
         });  
 
-        console.log("check");
+        console.log("check2");
 
         this.setState({
             title: '',
@@ -46,45 +63,43 @@ class CreatePost extends React.Component {
             imageUrl: '',
             content: '',
         });
+
+        console.log("check3");
+    };
+
+    onFinish = values => {
+        this.setState({
+            title: values.title,
+            author: values.author,
+            imageUrl: values.imageUrl,
+            content: values.content,
+        });
     };
 
     render () {
         return (
             <div>
-                <Content>
-                    <form onSubmit={this.addArticle}>
-                        <input
-                            name="title"
-                            placeholder="title"
-                            onChange={this.updateInput}
-                            value={this.state.title}
-                        /><br/>
-            
-                        <input
-                            name="imageUrl"
-                            placeholder="imageUrl"
-                            onChange={this.updateInput}
-                            value={this.state.imageUrl}
-                        /><br/>
-            
-                        <input
-                            name="author"
-                            placeholder="author"
-                            onChange={this.updateInput}
-                            value={this.state.author}
-                        /><br/>
-
-                        <input
-                            name="content"
-                            placeholder="content"
-                            onChange={this.updateInput}
-                            value={this.state.content}
-                        /><br/>
-                        
-                        <button type="submit">Create</button>
-                    </form>
-
-                    <CreateForm/>
+                <Content className="content">
+                    <h1>Create Article</h1>
+                    <Form {...layout} name="nest-messages" onFinish={this.addArticle} validateMessages={validateMessages}>
+                        <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="imageUrl" label="Image URL" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="author" label="Author" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="content" label="Content">
+                            <Input.TextArea />
+                        </Form.Item>
+                        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 4 }}>
+                            <Button type="primary" htmlType="submit">
+                                <Link to='/'>Submit</Link>
+                            </Button>
+                        </Form.Item>
+                    </Form>
                 </Content>
                 
             </div>
@@ -93,83 +108,5 @@ class CreatePost extends React.Component {
     }
     
 }
-
-
-const layout = {
-    labelCol: {
-        span: 8,
-    },
-    wrapperCol: {
-        span: 16,
-    },
-};
-    
-const validateMessages = {
-    required: '${label} is required!',
-    types: {
-        email: '${label} is not validate email!',
-        number: '${label} is not a validate number!',
-    },
-    number: {
-        range: '${label} must be between ${min} and ${max}',
-    },
-};
-      
-const CreateForm = () => {
-        const onFinish = values => {
-        console.log(values);
-    };
-      
-    return (
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-        <Form.Item
-            name={['user', 'name']}
-            label="Name"
-            rules={[
-            {
-                required: true,
-            },
-            ]}
-        >
-            <Input />
-        </Form.Item>
-        <Form.Item
-            name={['user', 'email']}
-            label="Email"
-            rules={[
-            {
-                type: 'email',
-            },
-            ]}
-        >
-            <Input />
-        </Form.Item>
-        <Form.Item
-            name={['user', 'age']}
-            label="Age"
-            rules={[
-            {
-                type: 'number',
-                min: 0,
-                max: 99,
-            },
-            ]}
-        >
-            <InputNumber />
-        </Form.Item>
-        <Form.Item name={['user', 'website']} label="Website">
-            <Input />
-        </Form.Item>
-        <Form.Item name={['user', 'introduction']} label="Introduction">
-            <Input.TextArea />
-        </Form.Item>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button type="primary" htmlType="submit">
-            Submit
-            </Button>
-        </Form.Item>
-        </Form>
-    );
-};
   
-export { CreatePost, CreateForm } 
+export { CreatePost } 
