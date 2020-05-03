@@ -33,29 +33,13 @@ const IconText = ({ icon, text }) => (
   </Space>
 );
 
-const cardTrending = [
-  {
-    image : "https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/mom-woman-kid-face-mask-hospital-732x549-thumbnail-732x549.jpg?w=514",
-    title : "How to Use a Face Mask Correctly",
-    describe : "Surgical masks may protect against larger airborne particles whereas N95 respirators provide better protection against…"
-  },
-  {
-    image :"https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/family-kids-dad-dinner-eating-home-732x549-thumbnail-732x549.jpg?w=514",
-    title : "A 1-Week Meal Plan and Shopping List for Your Family of 4 (or More!)",
-    describe : "If you're looking to limit your outings to the grocery store but still have plenty of food to cook for your family, it can be…"
-  },
-  {
-    image : "https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/03/Male_Laptop_732x549-thumbnail-1-732x549.jpg?w=514",
-    title : "7 Tips for Making the Most of Online Therapy During the COVID-19 Outbreak",
-    describe : "Online therapy can feel awkward. But it doesn't have to."
-  }
-]
+
 
 class Home extends React.Component{
   constructor (props) {
     super(props)
     this.state = {
-      articleData: cardTerbaru
+      articleData: []
     }
   }
 
@@ -73,14 +57,7 @@ class Home extends React.Component{
       <Layout className="layout">
       <Header>
         <div className="logo">
-          <Row>
-            <Col span={23}>
-              <BookOutlined style={{fontSize:'40px', paddingRight:'10px', paddingTop:'12px'}} />
-            </Col>
-            <Col span={1}>
-              <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold'}} onClick={() => app.auth().signOut()}>Sign out</Button>
-            </Col>
-          </Row>
+          <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
         </div>
           <h1 className="judul">Seger Waras</h1>
       </Header>
@@ -100,11 +77,11 @@ class Home extends React.Component{
               </Col>
             </Row>
             <Row justify="center">
-              {cardTrending.map(data=> 
+              {this.state.articleData.slice(0, 3).map(data=> 
               <Card
-                style={{ width: 301, margin: 9, textAlign:'center'}}
-                cover={<img alt="example" src={data.image} />}>
-                <Meta title={data.title} description={data.describe} />
+                style={{width: 301, margin: 9, textAlign:'center'}}
+                cover={<img alt="example" src={data.imageUrl}/>}>
+                <Meta title={data.title} description={data.content} />
               </Card>
              )}
             </Row>
@@ -122,10 +99,22 @@ class Home extends React.Component{
         <List
     itemLayout="vertical"
     size="large"
+    style={{fontSize:'14pt'}}
     dataSource={this.state.articleData}
     footer={
-      <div>
-        <b>ant design</b> footer part
+      <div className="content-footer">   
+        <Row>
+          <Col span={11} className="app-text">
+            <h1 style={{fontSize:'24pt', margin:'0'}}>CREATE YOUR OWN ARTICLE NOW!</h1>
+            <p>Create health articles that are useful for others by clicking the button below.</p>
+            <Button type="dark" style={{width:'100px', height:'50px',  color:'white', backgroundColor:'black', fontWeight:'bold'}}>
+              CREATE
+            </Button>
+          </Col>
+          <Col span={13}>
+            <img className="img-footer" src="https://iu.co.id/wp-content/uploads/2019/10/healthy-lifestyle.jpeg"></img>
+          </Col> 
+        </Row>
       </div>
     }
     renderItem={item => (
@@ -133,7 +122,7 @@ class Home extends React.Component{
         key={item.title}
         extra={
           <img
-            width={272}
+            width={275}
             alt="logo"
             src={item.imageUrl}
           />
@@ -150,26 +139,12 @@ class Home extends React.Component{
       </div>      
     </Content>
     <Footer className="footer">
-      <div className="content-footer">   
-        <Row>
-              <Col span={12} className="app-text">
-                <h1 style={{fontSize:'30pt', margin:'0'}}>CREATE YOUR OWN ARTICLE NOW!</h1>
-                <p>Get 30% off full price and sale with promo code MARCH30 at checkout. Excludes Yeezy, Pharrell Williams, and Gift Cards</p>
-                <Button type="dark" style={{width:'100px', height:'50px',  color:'white', backgroundColor:'black', fontWeight:'bold'}}>
-                   CREATE
-                </Button>
-              </Col>
-              <Col span={12}>
-                <img className="img-footer" src="https://houseofheat.co/app/uploads/2019/09/Air-Jordan-34-22Blue-Void22-AR3240-400-1.jpg"></img>
-              </Col> 
-        </Row>
-      </div>
       <div className="footer-about">
+        <h1 className="judul-footer">Seger Waras</h1>
         <h1 className="font-cabin">Created by</h1>
-        <h1 className="font-cabin">Alfarelzaki / farizalbab / Rizal Miftah</h1>
+        <h1 className="font-cabin">Alfarelzaki ~ farizalbab ~ Rizal Miftah</h1>
         <h3 className="font-cabin">© 2020 SEGER WARAS - ALL RIGHTS RESERVED.</h3>
       </div>
-
     </Footer>
     </Layout>
       );

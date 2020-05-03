@@ -9,7 +9,7 @@
 
 .App {
     background-color: #dee3e2;
-    height: 350px;
+    height: 400px;
     background-image: url('https://news.okstate.edu/articles/agricultural-sciences-natural-resources/images/2019-food-trends.jpg');
     filter: blur(3px);
     -webkit-filter: blur(3px);
@@ -24,7 +24,7 @@
   font-weight: bold;
   /* border: 3px solid black; */
   position: absolute;
-  top: 43%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -49,9 +49,9 @@
   
   .content-footer{
     text-align: center;
-    background-color: #ffffff;
+    background-color: #F7EFEC;
     height: 350px;
-    width:1000px;
+    width:900px;
   }
   
   .discount-text{
@@ -62,8 +62,8 @@
   .app-text{
     text-align: left;
     padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   
   .App-logo {
@@ -163,7 +163,7 @@
 
   .footer{
     text-align: center;
-    height: 600px;
+    height: 250px;
     background: #77d8d8;
   }
 
@@ -181,11 +181,11 @@
 }
 
 .footer-about{
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 .img-footer {
-  width: 500px;
+  width: 550px;
   height: 350px;
   object-fit: cover;
 }
