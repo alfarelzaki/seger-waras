@@ -59,7 +59,7 @@ class Home extends React.Component{
         <div className="logo">
           <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
         </div>
-          <h1 className="judul">Seger Waras</h1>
+          <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
       </Header>
       <Content className="content">
       <div className="App"></div>
@@ -107,9 +107,11 @@ class Home extends React.Component{
           <Col span={11} className="app-text">
             <h1 style={{fontSize:'24pt', margin:'0'}}>CREATE YOUR OWN ARTICLE NOW!</h1>
             <p>Create health articles that are useful for others by clicking the button below.</p>
-            <Button type="dark" style={{width:'100px', height:'50px',  color:'white', backgroundColor:'black', fontWeight:'bold'}}>
-              CREATE
-            </Button>
+            <Link to='/createPost'>
+              <Button type="dark" style={{width:'100px', height:'50px',  color:'white', backgroundColor:'black', fontWeight:'bold'}}>
+                CREATE
+              </Button>  
+            </Link> 
           </Col>
           <Col span={13}>
             <img className="img-footer" src="https://iu.co.id/wp-content/uploads/2019/10/healthy-lifestyle.jpeg"></img>
