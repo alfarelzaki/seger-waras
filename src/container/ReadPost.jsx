@@ -52,7 +52,7 @@ class ReadPost extends React.Component {
                  <div className="logo">
                     <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
                 </div>
-                    <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
+                    <h1 className="judul"><Link to='/' style={{ color: '#227575' }}>Seger Waras</Link></h1>
                 </Header>
                 <Content className="content">
                 
