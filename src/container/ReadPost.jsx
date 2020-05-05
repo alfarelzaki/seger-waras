@@ -128,7 +128,7 @@ class ReadPost extends React.Component {
                  <div className="logo">
                     <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
                 </div>
-                    <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
+                    <h1 className="judul"><Link to='/' style={{ color: '#227575' }}>Seger Waras</Link></h1>
                 </Header>
                 <Content className="content">
                 
@@ -137,9 +137,11 @@ class ReadPost extends React.Component {
                         <h1 style={{ textAlign: 'left', color: 'black', fontWeight:'bold' }}>Your articles</h1>
                     </Col>
                     <Col span={3}>
-                    <Button className="float-left" type="primary" icon={<FileAddOutlined />}>
+                    <Link to='/createPost'>
+                        <Button className="float-left" type="primary" icon={<FileAddOutlined />}>
                             Add article
                         </Button>
+                    </Link>
                     </Col>
                 </Row>
                 <hr/>

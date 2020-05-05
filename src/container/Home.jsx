@@ -57,11 +57,12 @@ class Home extends React.Component{
       <Layout className="layout">
       <Header>
         <div className="logo">
+          <Link to='/readPost'><Button style={{height:'40px', width:'110px', textAlign:'center', fontWeight:'bold', color:'#227575', marginRight:20}}>My Articles</Button></Link>  
           <Button style={{height:'40px', width:'90px', textAlign:'center', fontWeight:'bold', color:'#227575'}} onClick={() => app.auth().signOut()}>Sign out</Button>
         </div>
-          <h1 className="judul"><Link to='/'>Seger Waras</Link></h1>
+          <h1 className="judul"><Link to='/' style={{ color: '#227575' }}>Seger Waras</Link></h1>
       </Header>
-      <Content className="content">
+      <Content className=  "content">
       <div className="App"></div>
       <div className="text-highlight">
         <h1 style={{fontSize:'30pt', marginTop:'0', color:'white'}}>Healthy Living</h1>
@@ -99,7 +100,6 @@ class Home extends React.Component{
         <List
     itemLayout="vertical"
     size="large"
-    style={{fontSize:'14pt'}}
     dataSource={this.state.articleData}
     footer={
       <div className="content-footer">   

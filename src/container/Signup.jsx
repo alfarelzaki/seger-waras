@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { app } from "../firebase";
 import 'antd/dist/antd.css';
 import './Login.css';
+import { Link } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -49,7 +50,7 @@ const SignUp = ({ history }) => {
           },
         ]}
       >
-        <Input name="email" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="email" />
+        <Input name="email" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
       </Form.Item>
       <Form.Item
         name="password"
@@ -78,7 +79,7 @@ const SignUp = ({ history }) => {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Sign Up
         </Button>
-        Or <a href="/login">Login</a>
+        Or <Link to="/login"  style={{color:'#F7EFEC'}}>Login</Link>
       </Form.Item>
     </form>
     </div>
