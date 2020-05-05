@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "health-blog-9cfa6"
+    "default": "health-blog-9cfa6",
+    "priority": "seger-waras-37ad6"
   }
 }

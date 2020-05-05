@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "seger-waras",
     "public": "public",
     "ignore": [
       "firebase.json",
