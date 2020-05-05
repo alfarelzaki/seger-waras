@@ -189,3 +189,12 @@
   height: 350px;
   object-fit: cover;
 }
+
+.ant-list-item-meta-title{
+  font-size: 20px !important; 
+  color: #000000 !important; 
+}
+
+.ant-list-vertical .ant-list-item-meta {
+  margin-bottom: 4px;
+}

@@ -61,9 +61,11 @@ class ReadPost extends React.Component {
                         <h1 style={{ textAlign: 'left', color: 'black', fontWeight:'bold' }}>Your articles</h1>
                     </Col>
                     <Col span={3}>
-                    <Button className="float-left" type="primary" icon={<FileAddOutlined />}>
+                    <Link to='/createPost'>
+                        <Button className="float-left" type="primary" icon={<FileAddOutlined />}>
                             Add article
                         </Button>
+                    </Link>
                     </Col>
                 </Row>
                 <hr/>

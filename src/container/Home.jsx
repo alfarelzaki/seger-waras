@@ -100,7 +100,6 @@ class Home extends React.Component{
         <List
     itemLayout="vertical"
     size="large"
-    style={{fontSize:'14pt'}}
     dataSource={this.state.articleData}
     footer={
       <div className="content-footer">   
