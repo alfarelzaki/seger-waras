@@ -218,16 +218,7 @@ class ReadPost extends React.Component {
                     />
                 </section>
                 </Content>
-                <Footer className="footer">
-                <div className="footer-about">
-                    <h1 className="judul-footer">Seger Waras</h1>
-                    <h1 className="font-cabin">Created by</h1>
-                    <h1 className="font-cabin">Alfarelzaki ~ farizalbab ~ Rizal Miftah</h1>
-                    <h3 className="font-cabin">© 2020 SEGER WARAS - ALL RIGHTS RESERVED.</h3>
-                </div>
-                </Footer>
             </Layout>
-
         )
     }
 }
