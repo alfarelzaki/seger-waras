@@ -4,6 +4,7 @@ import { app } from "../firebase";
 import { AuthContext } from "../Auth";
 import 'antd/dist/antd.css';
 import './Login.css';
+import { Link } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -34,21 +35,6 @@ const Login = ({ history }) => {
   
 
   return (
-    // <div>
-    //   <h1>Log in</h1>
-    //   <form onSubmit={handleLogin}>
-    //     <label>
-    //       Email
-    //       <input name="email" type="email" placeholder="Email" />
-    //     </label>
-    //     <label>
-    //       Password
-    //       <input name="password" type="password" placeholder="Password" />
-    //     </label>
-    //     <button type="submit">Log in</button>
-    //   </form>
-    // </div>
-
     <div className="background">
     <div
     name="normal_login"
@@ -58,13 +44,9 @@ const Login = ({ history }) => {
     className="user-icon"
     alt="usericon"
     >
-
     </img>
     <h1 className="text-login">Login </h1>
     <form onSubmit={handleLogin}
-  
-     
-     
     >
       <Form.Item
         name="email"
@@ -75,7 +57,7 @@ const Login = ({ history }) => {
           },
         ]}
       >
-        <Input name="email" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="email" />
+        <Input name="email" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
       </Form.Item>
       <Form.Item
         name="password"
@@ -93,18 +75,10 @@ const Login = ({ history }) => {
         />
       </Form.Item>
       <Form.Item>
-        {/* <Form.Item name="remember" valuePropName="checked" noStyle>
-         
-        </Form.Item> */}
-
-        
-      </Form.Item>
-
-      <Form.Item>
-        <Button  htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="/signup">register now!</a>
+        Or <Link to="/signup" style={{color:'#F7EFEC'}}>register now!</Link>
       </Form.Item>
     </form>
     </div>
