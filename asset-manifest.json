@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/seger-waras/static/css/main.893cf1a5.chunk.css",
+    "main.js": "/seger-waras/static/js/main.4354b8a7.chunk.js",
+    "main.js.map": "/seger-waras/static/js/main.4354b8a7.chunk.js.map",
+    "runtime-main.js": "/seger-waras/static/js/runtime-main.a9a6222c.js",
+    "runtime-main.js.map": "/seger-waras/static/js/runtime-main.a9a6222c.js.map",
+    "static/css/2.8d06fd47.chunk.css": "/seger-waras/static/css/2.8d06fd47.chunk.css",
+    "static/js/2.899a118c.chunk.js": "/seger-waras/static/js/2.899a118c.chunk.js",
+    "static/js/2.899a118c.chunk.js.map": "/seger-waras/static/js/2.899a118c.chunk.js.map",
+    "index.html": "/seger-waras/index.html",
+    "precache-manifest.48e82864df7b34c60066a679f97a1474.js": "/seger-waras/precache-manifest.48e82864df7b34c60066a679f97a1474.js",
+    "service-worker.js": "/seger-waras/service-worker.js",
+    "static/css/2.8d06fd47.chunk.css.map": "/seger-waras/static/css/2.8d06fd47.chunk.css.map",
+    "static/css/main.893cf1a5.chunk.css.map": "/seger-waras/static/css/main.893cf1a5.chunk.css.map",
+    "static/js/2.899a118c.chunk.js.LICENSE.txt": "/seger-waras/static/js/2.899a118c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a9a6222c.js",
+    "static/css/2.8d06fd47.chunk.css",
+    "static/js/2.899a118c.chunk.js",
+    "static/css/main.893cf1a5.chunk.css",
+    "static/js/main.4354b8a7.chunk.js"
+  ]
+}
