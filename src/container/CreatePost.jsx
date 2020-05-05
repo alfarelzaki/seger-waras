@@ -39,6 +39,7 @@ class CreatePost extends React.Component {
             imageUrl: values.imageUrl,
             content: values.content,
         });
+
         console.log(this.state.title);
         console.log("check");
 
@@ -56,16 +57,7 @@ class CreatePost extends React.Component {
             uid: user.uid
         });  
 
-        console.log("check2");
-
-        this.setState({
-            title: '',
-            author: '',
-            imageUrl: '',
-            content: '',
-        });
-
-        console.log("check3");
+        this.props.history.push('/readPost')
     };
 
     onFinish = values => {
@@ -104,11 +96,11 @@ class CreatePost extends React.Component {
                             <Input />
                         </Form.Item>
                         <Form.Item name="content" label="Content">
-                            <Input.TextArea />
+                            <Input.TextArea/>
                         </Form.Item>
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 4 }}>
                             <Button type="primary" htmlType="submit">
-                                <Link to='/'>Submit</Link>
+                                Submit
                             </Button>
                         </Form.Item>
                     </Form>
